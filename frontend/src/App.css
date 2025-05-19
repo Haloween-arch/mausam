@@ -1,0 +1,69 @@
+/* App.css */
+
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+/* Heading */
+h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  user-select: none;
+  letter-spacing: 1.5px;
+}
+
+/* Dialogflow Messenger styling */
+df-messenger {
+  --df-messenger-button-titlebar-color: #0077ff; /* Bright blue header */
+  --df-messenger-bot-message: #0051ba; /* Darker blue bot messages */
+  --df-messenger-user-message: #8ecfff; /* Light blue user messages */
+  --df-messenger-chat-background-color: #e6f0ff; /* Soft light background */
+  --df-messenger-font-color: #1a1a1a; /* Dark text for readability */
+  --df-messenger-input-font-color: #003366;
+  --df-messenger-input-placeholder-color: #6699cc;
+  --df-messenger-input-background-color: #cce0ff;
+  --df-messenger-send-icon: #0077ff;
+  --df-messenger-chat-border-radius: 16px;
+  --df-messenger-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --df-messenger-font-size: 16px;
+
+  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.35);
+  border-radius: 16px;
+  width: 380px;
+  height: 540px;
+  transition: box-shadow 0.3s ease;
+}
+
+df-messenger:hover {
+  box-shadow: 0 12px 30px rgba(0, 119, 255, 0.5);
+}
+
+/* Responsive for smaller screens */
+@media (max-width: 420px) {
+  h1 {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  df-messenger {
+    width: 320px;
+    height: 480px;
+  }
+}
