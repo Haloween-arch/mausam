@@ -1,69 +1,126 @@
-/* App.css */
-
-/* Reset and base */
 * {
-  box-sizing: border-box;
-}
-
-body, html, #root {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* BASE */
+.app {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  color: #fff;
+  transition: background 0.6s ease;
 }
 
-/* Heading */
-h1 {
-  font-size: 3rem;
-  font-weight: 900;
+/* 🌤 WEATHER THEMES */
+.sunny {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed);
+}
+
+.rainy {
+  background: linear-gradient(135deg, #314755, #26a0da);
+  animation: rain 6s linear infinite;
+}
+
+.cloudy {
+  background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+}
+
+.night {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+}
+
+/* 🌧 RAIN ANIMATION */
+@keyframes rain {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 200%;
+  }
+}
+
+/* 🌙 DARK MODE */
+.dark {
+  filter: brightness(0.85);
+}
+
+/* 💎 HERO CARD */
+.hero {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(18px);
+  padding: 40px 50px;
+  border-radius: 20px;
   text-align: center;
-  margin-bottom: 2rem;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
-  user-select: none;
-  letter-spacing: 1.5px;
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+  animation: float 6s ease-in-out infinite;
 }
 
-/* Dialogflow Messenger styling */
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+}
+
+.hero p {
+  margin: 12px 0 25px;
+}
+
+/* 🎛 BUTTONS */
+.actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  padding: 12px 18px;
+  border-radius: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions button:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: scale(1.05);
+}
+
+.actions .active {
+  background: #00ffd5;
+  color: black;
+  font-weight: bold;
+}
+
+/* 🤖 CHATBOT */
 df-messenger {
-  --df-messenger-button-titlebar-color: #0077ff; /* Bright blue header */
-  --df-messenger-bot-message: #0051ba; /* Darker blue bot messages */
-  --df-messenger-user-message: #8ecfff; /* Light blue user messages */
-  --df-messenger-chat-background-color: #e6f0ff; /* Soft light background */
-  --df-messenger-font-color: #1a1a1a; /* Dark text for readability */
-  --df-messenger-input-font-color: #003366;
-  --df-messenger-input-placeholder-color: #6699cc;
-  --df-messenger-input-background-color: #cce0ff;
-  --df-messenger-send-icon: #0077ff;
-  --df-messenger-chat-border-radius: 16px;
-  --df-messenger-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --df-messenger-font-size: 16px;
-
-  box-shadow: 0 8px 20px rgba(0, 119, 255, 0.35);
-  border-radius: 16px;
-  width: 380px;
-  height: 540px;
-  transition: box-shadow 0.3s ease;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  --df-messenger-button-titlebar-color: #1976ff;
+  --df-messenger-chat-background-color: #f4f7ff;
 }
 
-df-messenger:hover {
-  box-shadow: 0 12px 30px rgba(0, 119, 255, 0.5);
-}
-
-/* Responsive for smaller screens */
-@media (max-width: 420px) {
-  h1 {
-    font-size: 2.2rem;
-    margin-bottom: 1.2rem;
+/* 📱 MOBILE FULLSCREEN */
+@media (max-width: 768px) {
+  df-messenger {
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
   }
 
-  df-messenger {
-    width: 320px;
-    height: 480px;
+  .hero {
+    margin: 20px;
+    padding: 30px;
   }
 }
