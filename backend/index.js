@@ -4,7 +4,7 @@ const axios = require("axios");
 const app = express();
 app.use(express.json());
 
-const WEATHERAPI_KEY = process.env.OPENWEATHER_API_KEY;
+const WEATHERAPI_KEY = process.env.WEATHER_API_KEY;
 
 app.post("/webhook", async (req, res) => {
   try {

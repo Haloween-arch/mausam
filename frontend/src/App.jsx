@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
-const OPEN_WEATHER_KEY = "YOUR_API_KEY_HERE";
+const OPEN_WEATHER_KEY = import.meta.env.VITE_OPEN_WEATHER_KEY;
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
